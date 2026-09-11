@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Abhinav | Web Developer Intern</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            background: #f8f9fc;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: #111827;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #60a5fa;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #60a5fa;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px 60px;
+            color: white;
+
+            background:
+                radial-gradient(circle at top right, #2563eb, transparent 35%),
+                linear-gradient(135deg, #111827, #1e3a8a);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #60a5fa;
+            border-radius: 30px;
+            color: #bfdbfe;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #60a5fa;
+        }
+
+        .hero h2 {
+            font-size: 25px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #dbeafe;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 14px 30px;
+            background: #2563eb;
+            color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #60a5fa;
+            transform: translateY(-3px);
+        }
+
+        /* COMMON SECTION */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #6b7280;
+        }
+
+        /* ABOUT */
+        .about {
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #4b5563;
+        }
+
+        /* SKILLS */
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .skill {
+            background: white;
+            padding: 25px 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(37,99,235,0.2);
+        }
+
+        /* PROJECTS */
+        .projects {
+            background: #eef2ff;
+        }
+
+        .project-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .project {
+            background: white;
+            width: 300px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+        }
+
+        .project h3 {
+            color: #1d4ed8;
+            margin-bottom: 15px;
+        }
+
+        .project p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            font-size: 18px;
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            background: #111827;
+            color: white;
+            padding: 25px;
+        }
+
+        footer span {
+            color: #60a5fa;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav ul li a {
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav id="navbar">
+
+        <div class="logo">
+            Abhinav<span>.</span>
+        </div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                BSc Computer Science Student
+            </div>
+
+            <h1>
+                Hi, I'm <span>Abhinav</span>
+            </h1>
+
+            <h2>
+                Web Developer Intern at Prodigy Infotech
+            </h2>
+
+            <p>
+                I am a Computer Science student passionate about
+                web development and creating modern, responsive
+                and user-friendly websites.
+            </p>
+
+            <a href="#projects" class="btn">
+                View My Work
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <div class="section-title">
+            <h2>About Me</h2>
+            <p>Get to know me</p>
+        </div>
+
+        <div class="about-content">
+
+            <p>
+                I am Abhinav, a BSc Computer Science student and
+                Web Developer Intern at Prodigy Infotech. I am
+                developing my skills in front-end development
+                using HTML, CSS and JavaScript.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-title">
+            <h2>My Skills</h2>
+            <p>Technologies I am learning and working with</p>
+        </div>
+
+        <div class="skills-container">
+
+            <div class="skill">HTML5</div>
+            <div class="skill">CSS3</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Responsive Design</div>
+            <div class="skill">Git & GitHub</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+
+        <div class="section-title">
+            <h2>My Projects</h2>
+            <p>Some of my web development work</p>
+        </div>
+
+        <div class="project-container">
+
+            <div class="project">
+                <h3>Responsive Landing Page</h3>
+                <p>
+                    A modern responsive landing page created
+                    using HTML, CSS and JavaScript with an
+                    interactive navigation menu.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>Stopwatch Web App</h3>
+                <p>
+                    An interactive stopwatch application with
+                    start, pause, reset and time tracking
+                    functionality.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>Tic-Tac-Toe Game</h3>
+                <p>
+                    A browser-based Tic-Tac-Toe game developed
+                    using HTML, CSS and JavaScript.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <div class="section-title">
+            <h2>Let's Connect</h2>
+            <p>
+                Interested in web development and new opportunities?
+            </p>
+        </div>
+
+        <a href="mailto:your-email@example.com" class="btn">
+            Contact Me
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 <span>Abhinav</span> | Web Developer Intern
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // Change navbar background when scrolling
+
+        window.addEventListener("scroll", function () {
+
+            const navbar = document.getElementById("navbar");
+
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+
+        });
+
+    </script>
+
+</body>
+  </html>
