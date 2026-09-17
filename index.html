@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Responsive Landing Page</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        /* Navigation Bar */
+        #navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            transition: 0.4s;
+            z-index: 1000;
+        }
+
+        /* Navbar after scrolling */
+        #navbar.scrolled {
+            background: #4b0082;
+            padding: 12px 7%;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        /* Hover Effect */
+        .nav-links a:hover {
+            background: white;
+            color: #4b0082;
+        }
+
+        /* Home Section */
+        .home {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #4b0082, #7b2cbf);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 100px 20px;
+        }
+
+        .home-content h1 {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .home-content p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: white;
+            color: #4b0082;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #222;
+            color: white;
+        }
+
+        /* Other Sections */
+        section:not(.home) {
+            min-height: 100vh;
+            padding: 120px 8% 60px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 38px;
+            color: #4b0082;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        #about {
+            background: white;
+        }
+
+        #services {
+            background: #eee6f7;
+        }
+
+        #projects {
+            background: white;
+        }
+
+        #contact {
+            background: #eee6f7;
+        }
+
+        /* Cards */
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: white;
+            width: 280px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            color: #4b0082;
+            margin-bottom: 12px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+
+            #navbar {
+                padding: 15px 5%;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            #navbar.scrolled {
+                padding: 10px 5%;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .nav-links {
+                gap: 8px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+                padding: 6px 8px;
+            }
+
+            .home-content h1 {
+                font-size: 38px;
+            }
+
+            .home-content p {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Menu -->
+    <nav id="navbar">
+
+        <div class="logo">Kanika</div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- Home -->
+    <section class="home" id="home">
+
+        <div class="home-content">
+
+            <h1>Welcome to My Website</h1>
+
+            <p>
+                A Responsive Landing Page using HTML, CSS and JavaScript
+            </p>
+
+            <a href="#about" class="btn">Explore More</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section id="about">
+
+        <h2>About Us</h2>
+
+        <p>
+            This is a simple responsive landing page created using
+            HTML, CSS and JavaScript. The navigation menu remains fixed
+            while scrolling through the website.
+        </p>
+
+    </section>
+
+
+    <!-- Services -->
+    <section id="services">
+
+        <h2>Our Services</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Web Design</h3>
+                <p>Creating clean and attractive website designs.</p>
+            </div>
+
+            <div class="card">
+                <h3>Responsive Design</h3>
+                <p>Websites that work properly on mobile and desktop.</p>
+            </div>
+
+            <div class="card">
+                <h3>Frontend Development</h3>
+                <p>Building websites using HTML, CSS and JavaScript.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Projects -->
+    <section id="projects">
+
+        <h2>My Projects</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Landing Page</h3>
+                <p>A responsive landing page project.</p>
+            </div>
+
+            <div class="card">
+                <h3>Portfolio</h3>
+                <p>A personal portfolio website.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2>Contact</h2>
+
+        <p>
+            Email: kanika@example.com
+        </p>
+
+    </section>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        window.addEventListener("scroll", function() {
+
+            const navbar = document.getElementById("navbar");
+
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } 
+            else {
+                navbar.classList.remove("scrolled");
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
